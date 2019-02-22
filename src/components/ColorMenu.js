@@ -7,7 +7,6 @@ const COLORS = ["#272822","#F92672","#66D9EF","#A6E22E","#FD971F"]
 class ColorMenu extends Component {
 
   handleClick = (color) => {
-    console.log("a")
     document.documentElement.style.setProperty('--color-dice', color);
   }
 
