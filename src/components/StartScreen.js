@@ -8,7 +8,7 @@ class StartScreen extends Component {
 
   handleClick = () => {
     this.props.rollDice()
-  } 
+  }
 
   render() {
     return (
