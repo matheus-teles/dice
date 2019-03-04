@@ -1,83 +1,11 @@
-import React, { Component } from 'react'
-import DiceSolid from './DiceSolid'
+import React from 'react'
+import D20 from './D20'
+import D6 from './D6'
 
-import './Dice.sass'
-
-class Dice extends Component {
-
-  constructor(props){
-    super(props)
-    this.state = {
-      randomSide: Math.floor(Math.random() * 4),
-      randomDepth: Math.floor(Math.random() * 101) - 50
-    }
-  }
-
-  generateProperRotation = () => {
-    let styleSheet = document.styleSheets[0]
-    let style = ""
-    let style2 = ""
-    switch(this.state.randomSide){
-      case 0:
-        style = `rotate3d(${this.state.randomDepth / 50}, 1, 0, 0deg)`
-        style2 = `rotate3d(${this.state.randomDepth / 50}, 1, 0, 1070deg)`
-        break;
-      case 1:
-        style = `rotate3d(${this.state.randomDepth / 50}, -1, 0, 0deg)`
-        style2 = `rotate3d(${this.state.randomDepth / 50}, -1, 0, 1070deg)`
-        break;
-      case 2:
-        style = `rotate3d(-1, ${this.state.randomDepth / 50 * -1}, 0, 0deg)`
-        style2 = `rotate3d(-1, ${this.state.randomDepth / 50 * -1}, 0, 1070deg)`
-        break;
-      case 3:
-        style = `rotate3d(1, ${this.state.randomDepth / 50 * -1}, 0, 0deg)`
-        style2 = `rotate3d(1, ${this.state.randomDepth / 50 * -1}, 0, 1070deg)`
-        break;
-    }
-    const keyframes = `@keyframes rot {
-      from {
-        transform: ${style}
-      }
-      to {
-        transform: ${style2}
-      }
-    }`
-
-    styleSheet.insertRule(keyframes, styleSheet.cssRules.length)
-
-    return {
-      transform: style
-    }
-  }
-
-  randomPosition = () => {
-    let cssTransformation = ""
-    switch(this.state.randomSide){
-      case 0:
-        cssTransformation = `translate3D(calc(-50% - 100px), ${this.state.randomDepth}%, 0)`
-        break;
-      case 1:
-        cssTransformation = `translate3D(calc(50% + 100px), ${this.state.randomDepth}%, 0)`
-        break;
-      case 2:
-        cssTransformation = `translate3D(${this.state.randomDepth}%, calc(-50% - 100px), 0)`
-        break;
-      case 3:
-        cssTransformation = `translate3D(${this.state.randomDepth}%, calc(50% + 100px), 0)`
-        break;
-    }
-    return {
-      transform: cssTransformation
-    }
-  }
-
-  render() {
-    return (
-      <div className="Dice" style={this.randomPosition()}>
-        <DiceSolid style={this.generateProperRotation()} />
-      </div>
-    )
+function Dice(props) {
+  switch(props.dice) {
+    case 6: return <D6 size={props.size} />
+    case 20: return <D20 size={props.size} />
   }
 }
 

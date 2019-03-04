@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import Dice from './Dice'
+import { connect } from 'react-redux'
+import ThrowAnimation from './ThrowAnimation'
 import Button from './Button'
+import Dice from './Dice'
 
 import './RollScreen.sass'
 
@@ -21,8 +23,9 @@ class RollScreen extends Component {
   render() {
     return (
       <div className="RollScreen">
-        {this.props.children}
-        <Dice key={this.state.dices}/>
+        <ThrowAnimation key={this.state.dices}>
+          <Dice dice={this.props.currentDice} size="big"/>
+        </ThrowAnimation>
         <div className="bottom-right-menu">
           <Button clickAction={this.rerollDice} text="Throw dice"/>
         </div>
@@ -31,4 +34,13 @@ class RollScreen extends Component {
   }
 }
 
-export default RollScreen
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    ...state
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(RollScreen)

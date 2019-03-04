@@ -13,7 +13,6 @@ class StartScreen extends Component {
   render() {
     return (
       <div className="StartScreen">
-        {this.props.children}
         <Button clickAction={this.handleClick} text="Roll the dice" />
       </div>
     )

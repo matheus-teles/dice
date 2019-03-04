@@ -1,0 +1,102 @@
+$sizes: big-dice 50px, small-dice 15px;
+
+@each $size in $sizes {
+  .D20.#{nth($size, 1)} {
+    $font: 'Muli', sans-serif;
+    $triwidth: nth($size, 2);
+
+    $sqrt3: 1.732;
+    $tilt: 52.62deg;
+    $capheight: -1.051 * $triwidth;
+    $triheight: $triwidth * $sqrt3;
+    $vshift: $capheight + $triheight / 2;
+
+    $innerradius: 1.376 * $triwidth;
+    $outerradius: 1.701 * $triwidth;
+    $sidetilt: 10.81deg;
+    $sideheight: $outerradius;
+    $vshift2: $sideheight + $triheight - $vshift;
+
+    position: relative;
+    width: $triwidth * 2;
+    height: $triwidth * 2;
+    transform-style: preserve-3d;
+    transform: rotate(180deg);
+
+    .face {
+      position: absolute;
+      left: 0;
+      bottom: 50%;
+      border-bottom: $triheight solid black;
+      border-left: $triwidth solid transparent;
+      border-right: $triwidth solid transparent;
+      transform-origin: 50% 0%;
+
+      span {
+        position: absolute;
+        font-size: nth($size, 2) - 5;
+        font-family: $font;
+        top: nth($size, 2);
+        transform: translateX(-50%) translateY(-25%)
+      }
+    }
+    .face:before {
+      content: ' ';
+      position: absolute;
+      top: 1px;
+      left: #{$triwidth * -1 + 2};
+      border-bottom: #{$triheight - 2} solid var(--color-dice);
+      border-left: #{$triwidth - 2} solid transparent;
+      border-right: #{$triwidth - 2} solid transparent;
+    }
+
+    @for $i from 1 through 5 { // bottom
+    .face:nth-child(#{$i}) {
+      transform: 
+        translateY($vshift2) 
+        rotateY(#{$i * 72deg + 36deg}) 
+        rotateX(#{180deg - $tilt});
+    }
+    }
+    @for $i from 6 through 10 { // top
+    $vshift2: $vshift;
+    .face:nth-child(#{$i}) {
+      transform: 
+        translateY($vshift2) 
+        rotateY(#{$i * 72deg}) 
+        rotateX($tilt);
+    }
+    }
+    @for $i from 16 through 20 { // top sides
+      .face:nth-child(#{$i}) {
+        transform: 
+        translateY(#{$triheight / 2 + $sideheight}) 
+        rotateY(#{$i * 72deg})
+        rotateZ(180deg)
+        translateZ($outerradius)
+        rotateX(-$sidetilt);
+      }
+    }
+    @for $i from 11 through 15 { // bottom sides
+    .face:nth-child(#{$i}) {
+      transform: 
+        translateY(#{$triheight / 2}) 
+        rotateY(#{$i * 72deg + 36deg}) 
+        translateZ($outerradius)
+        rotateX(-$sidetilt);
+    }
+    }
+  }
+} 
+
+
+
+
+@keyframes spin {
+  0% { 
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% { 
+    transform: rotateX(360deg) rotateY(720deg) rotateZ(1080deg);
+  }
+}

@@ -1,0 +1,8 @@
+@keyframes infinite-roll
+  100% 
+    transform: rotate3d(-1, -1, 0, 360deg) rotateZ(360deg)
+.InfiniteRollAnimation
+  transform-style: preserve-3d
+  animation: infinite-roll 6s linear infinite
+  &:hover
+    animation-duration: 2s

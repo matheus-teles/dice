@@ -8,8 +8,8 @@ const ROLL_STATE = 1
 
 class Screen extends Component {
   selectScreen = () => {
-    if (this.props.currentScreen === START_STATE) return <StartScreen children={this.props.children}/> 
-    return <RollScreen children={this.props.children}/>
+    if (this.props.currentScreen === START_STATE) return <StartScreen /> 
+    return <RollScreen />
   }
 
   render() {

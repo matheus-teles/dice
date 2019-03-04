@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 
-import './DiceSolid.sass'
+import './D6.sass'
 
-class DiceSolid extends Component {
+class D6 extends Component {
 
   generateRandomDice = () => {
     let faceUp = Math.floor(Math.random() * 6)
@@ -25,11 +25,11 @@ class DiceSolid extends Component {
 
   render() {
     return (
-      <div className="DiceSolid" style={this.props.style}>
+      <div className={`D6 ${this.props.size}-dice`} style={this.props.style}>
         {this.generateRandomDice()}
       </div>
     )
   }
 }
 
-export default DiceSolid
+export default D6
