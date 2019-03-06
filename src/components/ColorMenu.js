@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import './ColorMenu.sass'
 
-const COLORS = ["#272822","#F92672","#66D9EF","#A6E22E","#FD971F", '#FFFFFF'];
+const COLORS = ["#F92672","#66D9EF","#A6E22E","#FD971F", '#FFFFFF'];
 
 class ColorMenu extends Component {
 
