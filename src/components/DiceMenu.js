@@ -18,22 +18,30 @@ class DiceMenu extends Component {
   const DICES = [{id: 6, value: <D6 size="small" />}, {id: 20, value: <D20 size="small" />}];
     const diceList = DICES.map((dice) => {
       return (
-      <div key={dice.id} onClick={(e) => this.handleClick(dice.id, e)} className="dice">
-        <InfiniteRollAnimation>
-          {dice.value}
-        </InfiniteRollAnimation>
-      </div>
+      <li key={dice.id} className={this.props.currentDice == dice.id ? 'active' : ''}>
+        <div onClick={(e) => this.handleClick(dice.id, e)} className="dice">
+          <InfiniteRollAnimation>
+            {dice.value}
+          </InfiniteRollAnimation>
+        </div>
+      </li>
       )
     })
     return (
-      <div className="left-top-menu">
+      <ul className="left-top-menu">
         {diceList}
-      </div>
+      </ul>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   { chooseDice }
 )(DiceMenu)

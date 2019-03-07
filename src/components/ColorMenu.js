@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import './ColorMenu.sass'
 
@@ -12,7 +13,11 @@ class ColorMenu extends Component {
 
   render() {
     const colorList = COLORS.map((color) => {
-      return <div key={color} onClick={(e) => this.handleClick(color, e)} className="block" style={{backgroundColor: color}}></div>
+      return (
+      <li key={color}>
+        <div onClick={(e) => this.handleClick(color, e)} className="block" style={{backgroundColor: color}}></div>
+      </li>
+      )
     })
     return (
       <div className="top-right-menu">
@@ -22,4 +27,12 @@ class ColorMenu extends Component {
   }
 }
 
-export default ColorMenu
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(ColorMenu)
