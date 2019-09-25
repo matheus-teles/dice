@@ -19,19 +19,19 @@ class ThrowAnimation extends Component {
     switch(this.state.randomSide){
       case 0:
         style = `rotate3d(${this.state.randomDepth / 50}, 1, 0, 0deg)`
-        style2 = `rotate3d(${this.state.randomDepth / 50}, 1, 0, 1070deg)`
+        style2 = `rotate3d(${this.state.randomDepth / 50}, 1, 0, 1085deg)`
         break;
       case 1:
         style = `rotate3d(${this.state.randomDepth / 50}, -1, 0, 0deg)`
-        style2 = `rotate3d(${this.state.randomDepth / 50}, -1, 0, 1070deg)`
+        style2 = `rotate3d(${this.state.randomDepth / 50}, -1, 0, 1085deg)`
         break;
       case 2:
         style = `rotate3d(-1, ${this.state.randomDepth / 50 * -1}, 0, 0deg)`
-        style2 = `rotate3d(-1, ${this.state.randomDepth / 50 * -1}, 0, 1070deg)`
+        style2 = `rotate3d(-1, ${this.state.randomDepth / 50 * -1}, 0, 1075deg)`
         break;
       case 3:
         style = `rotate3d(1, ${this.state.randomDepth / 50 * -1}, 0, 0deg)`
-        style2 = `rotate3d(1, ${this.state.randomDepth / 50 * -1}, 0, 1070deg)`
+        style2 = `rotate3d(1, ${this.state.randomDepth / 50 * -1}, 0, 1075deg)`
         break;
     }
     const keyframes = `@keyframes rot {
