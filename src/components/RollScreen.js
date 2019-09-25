@@ -13,24 +13,24 @@ class RollScreen extends Component {
       dices: 0
     }
   }
-  
+
   rerollDice = () => {
-    this.setState((state,props) => ({
+    this.setState((state, props) => ({
       dices: state.dices + 1
     }))
   }
-  
+
   render() {
     return (
       <div className="RollScreen">
         <ThrowAnimation key={this.state.dices}>
-          <Dice dice={this.props.currentDice} size="big"/>
+          <Dice dice={this.props.currentDice} size="big" onClick={this.rerollDice}/>
         </ThrowAnimation>
         <div className="bottom-right-menu">
           <Button clickAction={this.rerollDice} text="Throw dice"/>
         </div>
       </div>
-    ) 
+    )
   }
 }
 

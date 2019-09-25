@@ -25,7 +25,7 @@ class D6 extends Component {
 
   render() {
     return (
-      <div className={`D6 ${this.props.size}-dice`} style={this.props.style}>
+      <div className={`D6 ${this.props.size}-dice`} style={this.props.style} onClick={this.props.onClick}>
         {this.generateRandomDice()}
       </div>
     )
