@@ -15,7 +15,7 @@ function currentScreen(state = 0, action) {
   }
 }
 
-function currentDice(state = 6, action) {
+function currentDice(state = 20, action) {
   switch(action.type) {
     case CHOOSE_DICE:
       return action.payload.currentDice
