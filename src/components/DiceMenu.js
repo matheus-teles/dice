@@ -14,7 +14,7 @@ class DiceMenu extends Component {
   }
   
   render() {
-  const DICES = [6, 20];
+  const DICES = [4, 6, 20];
     const diceList = DICES.map((dice) => {
       return (
       <li key={dice} className={this.props.currentDice == dice ? 'active' : ''}>

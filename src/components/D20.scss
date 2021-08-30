@@ -88,25 +88,3 @@ $sizes: big-dice 50px, small-dice 15px;
     }
   }
 } 
-
-
-
-
-@keyframes spin {
-  0% { 
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  }
-  100% { 
-    transform: rotateX(360deg) rotateY(720deg) rotateZ(1080deg);
-  }
-}
-
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}

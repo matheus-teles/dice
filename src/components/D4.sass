@@ -1,0 +1,60 @@
+$sizes: big-dice 100px 20px, small-dice 40px 8px
+
+@each $size in $sizes
+  .D4.#{nth($size, 1)}
+    $width: nth($size, 2)
+    $realwidth: nth($size, 2) / 2
+    $aaa: 0.866
+    $font: 'Muli', sans-serif;
+
+    position: relative
+    width: #{nth($size, 2)}
+    height: #{nth($size, 2)}
+    transform-style: preserve-3d
+    transform-origin: bottom
+    transform: translateY(-#{nth($size, 2) / 2}) rotateX(2deg)
+
+    .face
+      position: absolute
+      border-left: #{nth($size, 2) / 2} solid transparent
+      border-right: #{nth($size, 2) / 2} solid transparent
+      border-top: #{nth($size, 2) / 2} solid transparent
+      border-bottom: #{nth($size, 2) * $aaa} solid black
+    
+    .face:before 
+      content: ' '
+      position: absolute
+      top: 1px
+      left: #{$realwidth * -1 + 2}
+      border-bottom: #{($width * $aaa) - 2} solid var(--color-dice)
+      border-left: #{$realwidth - 2} solid transparent
+      border-right: #{$realwidth - 2} solid transparent
+
+    .face:nth-child(1)
+
+    .face span
+      position: absolute
+      font-size: nth($size, 3)
+      font-family: $font
+      text-align: center
+
+    .face span:nth-child(1)
+      transform: translateY(#{$width / 10}) rotateY(180deg) translateX(#{$width / 12})
+
+    .face span:nth-child(2)
+      transform: translateY(#{$width / 1.6}) translateX(#{$width / 4}) rotateZ(120deg) rotateY(180deg)
+
+    .face span:nth-child(3)
+      transform: translateY(#{$width / 1.6}) translateX(-#{$width / 3}) rotateZ(-120deg) rotateY(180deg)
+
+    .face:nth-child(2)
+      transform-origin: 0% 100%
+      transform: rotate(-60deg) rotatex(-109.5deg)
+    
+    .face:nth-child(3)
+      transform-origin: 100% 100%
+      transform: rotate(60deg) rotatex(-109.5deg)
+
+    .face:nth-child(4)
+      transform-origin: 50% 100%
+      transform: rotate(180deg) rotatex(-109.5deg)
