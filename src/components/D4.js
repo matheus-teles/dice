@@ -3,7 +3,7 @@ import _ from 'lodash'
 
 import './D4.sass'
 
-class D6 extends Component {
+class D4 extends Component {
 
   generateRandomDice = () => {
     let faceUp = Math.floor(Math.random() * 4)
@@ -30,4 +30,4 @@ class D6 extends Component {
   }
 }
 
-export default D6
+export default D4
