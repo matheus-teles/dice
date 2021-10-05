@@ -32,6 +32,8 @@ $sizes: big-dice 50px, small-dice 15px;
       border-left: $triwidth solid transparent;
       border-right: $triwidth solid transparent;
       transform-origin: 50% 0%;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
 
       span {
         position: absolute;
