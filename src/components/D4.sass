@@ -5,12 +5,13 @@ $sizes: big-dice 100px 20px, small-dice 40px 8px
     $width: nth($size, 2)
     $realwidth: nth($size, 2) / 2
     $aaa: 0.866
-    $font: 'Muli', sans-serif;
+    $font: 'Muli', sans-serif
 
     position: relative
     width: #{nth($size, 2)}
     height: #{nth($size, 2)}
     transform-style: preserve-3d
+    -webkit-transform-style: preserve-3d
     transform-origin: bottom
     transform: translateY(-#{nth($size, 2) / 2}) rotateX(2deg)
 

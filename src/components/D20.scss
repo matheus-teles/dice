@@ -21,6 +21,7 @@ $sizes: big-dice 50px, small-dice 15px;
     width: $triwidth * 2;
     height: $triwidth * 2;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transform: rotate(180deg);
 
     .face {
